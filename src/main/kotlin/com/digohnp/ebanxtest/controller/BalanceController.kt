@@ -27,11 +27,4 @@ class BalanceController(
         return balanceService.sendEvent(request)
             ?: return ResponseEntity(GetBalanceResponse().balance, HttpStatus.NOT_FOUND)
     }
-
-    @PostMapping("/reset")
-    fun reset(): ResponseEntity<out Any> {
-        balanceService.balances.clear()
-
-        return ResponseEntity.ok("OK")
-    }
 }
