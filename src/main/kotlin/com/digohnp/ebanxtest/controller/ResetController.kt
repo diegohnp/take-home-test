@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/reset")
 class ResetController(
-    val balanceService: BalanceService
+    private val balanceService: BalanceService
 ) {
     @PostMapping
     fun reset(): ResponseEntity<out Any> {
