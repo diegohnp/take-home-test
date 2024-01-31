@@ -62,7 +62,7 @@ class BalanceService {
         return PostEventResponse(origin = PostBalanceResponse(id = balance.id!!, balance = balance.balance))
     }
 
-    private fun transfer(request: PostBalanceRequest): PostEventResponse? {
+    fun transfer(request: PostBalanceRequest): PostEventResponse? {
         val originBalance = getBalanceByAccountId(request.origin?.toLong()!!)
         var destinationBalance = getBalanceByAccountId(request.destination?.toLong()!!)
 
