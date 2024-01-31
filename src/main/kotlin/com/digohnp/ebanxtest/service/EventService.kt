@@ -7,7 +7,7 @@ import java.util.*
 
 @Service
 class EventService(
-    val balanceService: BalanceService
+    private val balanceService: BalanceService
 ) {
 
     fun sendEvent(request: PostBalanceRequest): PostEventResponse? {
