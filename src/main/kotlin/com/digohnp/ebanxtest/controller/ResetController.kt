@@ -1,4 +1,4 @@
-package com.digohnp.ebanxtest
+package com.digohnp.ebanxtest.controller
 
 import com.digohnp.ebanxtest.service.BalanceService
 import org.springframework.http.ResponseEntity
