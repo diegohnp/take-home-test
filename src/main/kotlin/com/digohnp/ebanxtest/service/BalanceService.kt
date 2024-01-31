@@ -52,7 +52,7 @@ class BalanceService {
             type = BalanceType.valueOf(request.type.uppercase(Locale.getDefault())))
     }
 
-    private fun withdraw(request: PostBalanceRequest): PostEventResponse? {
+    fun withdraw(request: PostBalanceRequest): PostEventResponse? {
         val balance: Balance = request.origin?.toLong()?.let { getBalanceByAccountId(it) } ?: return null
 
         balances.remove(balance)
