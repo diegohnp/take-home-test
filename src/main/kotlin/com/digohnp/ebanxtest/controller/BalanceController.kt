@@ -20,11 +20,4 @@ class BalanceController(
 
         return ResponseEntity(balance.balance, HttpStatus.OK)
     }
-
-    @PostMapping("/event")
-    @ResponseStatus(HttpStatus.CREATED)
-    fun sendEvent(@RequestBody request: PostBalanceRequest): Any {
-        return balanceService.sendEvent(request)
-            ?: return ResponseEntity(GetBalanceResponse().balance, HttpStatus.NOT_FOUND)
-    }
 }
