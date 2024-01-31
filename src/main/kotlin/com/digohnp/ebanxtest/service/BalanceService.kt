@@ -29,7 +29,7 @@ class BalanceService {
         }
     }
 
-    private fun deposit(request: PostBalanceRequest): PostEventResponse {
+    fun deposit(request: PostBalanceRequest): PostEventResponse {
         var balance = request.destination?.let { getBalanceByAccountId(it.toLong()) }
         if (balance != null) {
             balances.remove(balance)
