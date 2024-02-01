@@ -18,18 +18,7 @@ class BalanceService {
         return if (balanceFilter.isEmpty()) null else balanceFilter[0]
     }
 
-    fun sendEvent(request: PostBalanceRequest): PostEventResponse? {
-        if (!canExecuteEvent(request)) return null
-
-        return when (request.type.lowercase(Locale.getDefault())) {
-            "deposit" -> this.deposit(request)
-            "withdraw" -> this.withdraw(request)
-            "transfer" -> this.transfer(request)
-            else -> null
-        }
-    }
-
-    fun deposit(request: PostBalanceRequest): PostEventResponse {
+    fun deposit(request: PostBalanceRequest): PostDestinationEventResponse {
         var balance = request.destination?.let { getBalanceByAccountId(it.toLong()) }
         if (balance != null) {
             balances.remove(balance)
