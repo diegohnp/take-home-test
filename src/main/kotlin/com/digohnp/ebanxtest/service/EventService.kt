@@ -1,7 +1,6 @@
 package com.digohnp.ebanxtest.service
 
 import com.digohnp.ebanxtest.controller.request.PostBalanceRequest
-import com.digohnp.ebanxtest.controller.response.PostEventResponse
 import org.springframework.stereotype.Service
 import java.util.*
 
@@ -10,7 +9,7 @@ class EventService(
     private val balanceService: BalanceService
 ) {
 
-    fun sendEvent(request: PostBalanceRequest): PostEventResponse? {
+    fun sendEvent(request: PostBalanceRequest): Any? {
         if (!canExecuteEvent(request)) return null
 
         return when (request.type.lowercase(Locale.getDefault())) {
