@@ -2,6 +2,7 @@ package com.digohnp.ebanxtest.service
 
 import com.digohnp.ebanxtest.controller.request.PostBalanceRequest
 import com.digohnp.ebanxtest.controller.response.PostBalanceResponse
+import com.digohnp.ebanxtest.controller.response.PostDestinationEventResponse
 import com.digohnp.ebanxtest.controller.response.PostEventResponse
 import com.digohnp.ebanxtest.enums.BalanceType
 import com.digohnp.ebanxtest.model.Balance
@@ -31,7 +32,7 @@ class BalanceService {
             balances.add(balance)
         }
 
-        return PostEventResponse(destination = PostBalanceResponse(id = balance.id!!, balance = balance.balance))
+        return PostDestinationEventResponse(destination = PostBalanceResponse(id = balance.id!!.toString(), balance = balance.balance))
     }
 
     private fun createBalance(request: PostBalanceRequest): Balance {
