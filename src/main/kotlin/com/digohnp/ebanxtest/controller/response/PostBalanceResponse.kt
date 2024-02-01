@@ -3,6 +3,6 @@ package com.digohnp.ebanxtest.controller.response
 import java.math.BigDecimal
 
 class PostBalanceResponse(
-    var id: Long,
+    var id: String,
     var balance: BigDecimal
 )
