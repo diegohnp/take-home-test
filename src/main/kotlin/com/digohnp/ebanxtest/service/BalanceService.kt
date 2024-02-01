@@ -4,6 +4,7 @@ import com.digohnp.ebanxtest.controller.request.PostBalanceRequest
 import com.digohnp.ebanxtest.controller.response.PostBalanceResponse
 import com.digohnp.ebanxtest.controller.response.PostDestinationEventResponse
 import com.digohnp.ebanxtest.controller.response.PostEventResponse
+import com.digohnp.ebanxtest.controller.response.PostOriginEventResponse
 import com.digohnp.ebanxtest.enums.BalanceType
 import com.digohnp.ebanxtest.model.Balance
 import org.springframework.stereotype.Service
@@ -42,14 +43,14 @@ class BalanceService {
             type = BalanceType.valueOf(request.type.uppercase(Locale.getDefault())))
     }
 
-    fun withdraw(request: PostBalanceRequest): PostEventResponse? {
+    fun withdraw(request: PostBalanceRequest): PostOriginEventResponse? {
         val balance: Balance = request.origin?.toLong()?.let { getBalanceByAccountId(it) } ?: return null
 
         balances.remove(balance)
         balance.balance = balance.balance.minus(request.amount)
         balances.add(balance)
 
-        return PostEventResponse(origin = PostBalanceResponse(id = balance.id!!, balance = balance.balance))
+        return PostOriginEventResponse(origin = PostBalanceResponse(id = balance.id!!.toString(), balance = balance.balance))
     }
 
     fun transfer(request: PostBalanceRequest): PostEventResponse? {
