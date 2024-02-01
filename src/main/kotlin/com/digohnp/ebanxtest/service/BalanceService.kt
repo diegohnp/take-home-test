@@ -74,8 +74,8 @@ class BalanceService {
         balances.add(originBalance)
         balances.add(destinationBalance)
 
-        val postOriginBalanceResponse = PostBalanceResponse(id = originBalance.id!!, balance = originBalance.balance)
-        val postDestinationBalanceResponse = PostBalanceResponse(id = destinationBalance.id!!, balance = destinationBalance.balance)
+        val postOriginBalanceResponse = PostBalanceResponse(id = originBalance.id!!.toString(), balance = originBalance.balance)
+        val postDestinationBalanceResponse = PostBalanceResponse(id = destinationBalance.id!!.toString(), balance = destinationBalance.balance)
 
         return PostEventResponse(origin = postOriginBalanceResponse, destination = postDestinationBalanceResponse)
     }
