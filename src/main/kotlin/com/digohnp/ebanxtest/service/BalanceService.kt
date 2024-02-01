@@ -29,7 +29,6 @@ class BalanceService {
             balances.add(balance)
         } else {
             balance = createBalance(request)
-
             balances.add(balance)
         }
 

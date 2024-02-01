@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 class ServiceApplication {
-
     @Bean
     fun resultMapMessageConverter(): ResultMapMessageConverter {
         return ResultMapMessageConverter()
