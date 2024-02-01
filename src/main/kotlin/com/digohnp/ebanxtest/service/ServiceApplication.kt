@@ -1,4 +1,4 @@
-package com.digohnp.ebanxtest
+package com.digohnp.ebanxtest.service
 
 import com.digohnp.ebanxtest.util.ResultMapMessageConverter
 import org.springframework.context.annotation.Bean
